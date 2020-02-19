@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 
-public class ButtonAttribute : PropertyAttribute
+
+namespace Attributes
 {
-    public string functionName;
-
-    public ButtonAttribute(string functionName)
+    public class ButtonAttribute : PropertyAttribute
     {
-        this.functionName = functionName;
-    }
+        public string functionName;
 
+        public ButtonAttribute(string functionName)
+        {
+            this.functionName = functionName;
+        }
+
+    }
 }
+
 

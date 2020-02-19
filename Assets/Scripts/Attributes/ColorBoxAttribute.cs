@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
-public class ColorBoxAttribute : PropertyAttribute
+namespace Attributes
 {
-    public Color color;
-    public ColorBoxAttribute(float r, float g, float b, float a)
+    public class ColorBoxAttribute : PropertyAttribute
     {
-        this.color = new Color(r, g, b, a);
+        public Color color;
+        public ColorBoxAttribute(float r, float g, float b, float a)
+        {
+            this.color = new Color(r, g, b, a);
+        }
     }
 }

@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
-public class OnlyReadableAttribute : PropertyAttribute
+namespace Attributes
 {
-    public OnlyReadableAttribute()
+    public class OnlyReadableAttribute : PropertyAttribute
     {
+        public OnlyReadableAttribute()
+        {
+        }
     }
 }

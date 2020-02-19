@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Attributes;
 public class ExampleAttribute : MonoBehaviour
 {
     [Button("TestFunction")]
@@ -10,6 +10,9 @@ public class ExampleAttribute : MonoBehaviour
 
     [ColorBox(1f, 0.4f, 1f, 1f)]
     public string color;
+
+    [HeaderBox("MY HEADER")]
+    public string header;
 
     public void TestFunction()
     {

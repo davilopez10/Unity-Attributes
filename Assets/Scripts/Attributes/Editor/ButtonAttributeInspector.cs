@@ -3,27 +3,30 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ButtonAttribute))]
-public class ButtonAttributeInspector : PropertyDrawer
+namespace Attributes
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(ButtonAttribute))]
+    public class ButtonAttributeInspector : PropertyDrawer
     {
-        ButtonAttribute button = attribute as ButtonAttribute;
-
-        Object obj = property.serializedObject.targetObject;
-        MethodInfo method = obj.GetType().GetMethod(button.functionName);
-
-        if (GUI.Button(new Rect(position.x, position.y, position.width, position.height/2.5f), button.functionName))
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            method.Invoke(obj, null);
+            ButtonAttribute button = attribute as ButtonAttribute;
+
+            Object obj = property.serializedObject.targetObject;
+            MethodInfo method = obj.GetType().GetMethod(button.functionName);
+
+            if (GUI.Button(new Rect(position.x, position.y, position.width, position.height / 2.5f), button.functionName))
+            {
+                method.Invoke(obj, null);
+            }
+
+            EditorGUI.PropertyField(new Rect(position.x, position.y + position.height / 2f, position.width, position.height / 2.5f),
+                property, label);
         }
 
-        EditorGUI.PropertyField(new Rect(position.x, position.y + position.height / 2f, position.width, position.height/2.5f), 
-            property, label);
-    }
-
-    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-    {
-        return base.GetPropertyHeight(property, label)*2.5f;
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            return base.GetPropertyHeight(property, label) * 2.5f;
+        }
     }
 }
