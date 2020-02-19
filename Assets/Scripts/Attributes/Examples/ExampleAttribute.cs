@@ -14,6 +14,11 @@ public class ExampleAttribute : MonoBehaviour
     [HeaderBox("MY HEADER")]
     public string header;
 
+    public bool condition;
+
+    [Condition("condition")]
+    public string ifCondition;
+
     public void TestFunction()
     {
         Debug.Log("Test");
