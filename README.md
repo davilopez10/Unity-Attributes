@@ -1,7 +1,7 @@
 # Attributes
 Attributes are markers that can be placed above a class, property or function in a script to indicate special behaviour
 
-**[ButtonAttribute(string functionToInvoke)]**
+**[ButtonAttribute(string functionToInvoke, params object[] parameters)]**
 >Add to the inspector a button that calls a function.
 
 **[ColorBoxAttribute(float r, float g, float b, float a)]**
